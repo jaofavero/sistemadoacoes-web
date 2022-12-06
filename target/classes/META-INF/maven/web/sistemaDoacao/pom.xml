@@ -13,10 +13,10 @@
 		<relativePath />
 	</parent>
 
-	<groupId>br.edu.iftm.upt</groupId>
-	<artifactId>prova</artifactId>
+	<groupId>web</groupId>
+	<artifactId>sistemaDoacao</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>prova</name>
+	<name>sistemaDoacao</name>
 
 	<properties>
 		<!-- Versao do Java -->
@@ -64,6 +64,8 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+
 
 		<!-- Adiciona as dependências do log4j2 -->
 		<dependency>
