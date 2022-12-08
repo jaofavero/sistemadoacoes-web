@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Sistema Doações</title>
+<link rel="shortcut icon" th:href="@{/images/logo.png}" />
+<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+	<!-- Navbar da pagina TOPO -->
+	<div th:replace="~{layout/fragments/header :: header}"></div>
+
+	<!-- Conteudo Principal da pagina (vai incluir o sidebar) -->
+	<div class="col" layout:fragment="conteudo">
+		<p>Esse conteúdo vai ser substituído se a página usando o layout também definir uma seção
+			layout:fragment="conteudo".</p>
+	</div>
+
+	<!-- Rodape da pagina -->
+	<div th:replace="~{layout/fragments/footer :: footer}"></div>
+
+	<script src="../../static/js/script.js"></script>
+</body>
+</html>

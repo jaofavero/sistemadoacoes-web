@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('../imagens/jesus.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main--class
+{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 20px;
+    background-color: aqua;
+}
+.img--login{
+    width: calc(inherit - 20%);
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === HEADER === */
+.fragment--header{
+    width: 100vw;
+    height: 70px;
+    background-color: rgb(46, 65, 179);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.photo--profile{
+    height: 100%;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.photo{
+    width: 60px; 
+    background-image: url("../imagens/lenner-profile.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60px; 
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 100px;
+    overflow: hidden;
+}
+.information--profile{
+    width: 15%;
+    height: 100%;;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.name--profile{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
+    font-size: 18px;
+}
+.permission--profile{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 14px;
+    padding-right: 20px;
+}
+.header--area{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.header--title{
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Sofia', "Times new Roman";
+}
+
+/* === MENU === */
+.fragment--aside{
+    width: 15%;
+    background-color: rgb(46, 65, 179);
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+.nav--aside{
+    flex: 1;
+}
+.imagens--mentores{
+    height: 600px;
+}
+.chico, .allan, .emmanuel{
+    width: 100%;
+    height: 200px;
+}
+.menu--aside{
+    list-style-type: none;
+}
+.menu--aside li{
+    padding: 5px 15px;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+.menu--aside li:first-of-type{
+    border-top: 2px solid white;
+}
+.menu--aside li:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 4px black;
+}
+.menu--aside a{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+/* === CONTEÚDO === */
+.fragment--main{
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 140px);
+    flex-direction: row-reverse;
+}
+.fragment--section{
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: inherit;
+}
+
+
+/* === FOOTER === */
+
+.fragment--footer{
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: rgb(46, 65, 179);
+}
+.logo--if{
+    width: 10%;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rights--reserved{
+    flex: 1;
+    height: inherit;
+    display: flex;
+}
+.name--user--footer{
+    width: 30%;
+    height: inherit;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.name--developers{
+    flex: 1;
+    width: 100%;
+    height: inherit;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
