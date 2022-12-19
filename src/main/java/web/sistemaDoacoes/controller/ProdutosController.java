@@ -45,5 +45,11 @@ public class ProdutosController {
 			return "produtos/cadastrar";
 		}
 	}
+	
+	@PostMapping("/remover")
+	public String remover(Produtos produtos) {
+		produtosService.alterar(produtos);
+		return "produtos/remover";
+	}
 
 }
