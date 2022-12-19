@@ -30,7 +30,7 @@ public class SecurityConfig {
 				// Qualquer um pode fazer requisições para essas URLs
 				// .antMatchers("/css/**", "/js/**", "/images/**", "/",
 				// "/index.html").permitAll()
-				.antMatchers("/css/**", "/js/**", "/images/**").permitAll()
+				.antMatchers("/css/**", "/js/**", "/images/**", "/","/index.html").permitAll()
 				// Um usuário autenticado e com o papel ADMIN pode fazer requisições para essas
 				// URLs
 	            //.antMatchers("/aluno/notas").hasAnyRole("SECRETARIA","PROFESSOR", "ADMIN")

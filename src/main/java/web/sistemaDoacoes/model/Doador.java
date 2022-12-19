@@ -1,7 +1,6 @@
-package web.model;
+package web.sistemaDoacoes.model;
 
 import java.util.Objects;
-
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,15 +10,16 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "produtos")
-public class Produtos {
-
+@Table(name = "doador")
+public class Doador {
+	
 	@Id
-	@SequenceGenerator(name = "gerador4", sequenceName = "produto_codigo_seq", allocationSize = 1)
-	@GeneratedValue(generator = "gerador4", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "gerador1", sequenceName = "doador_codigo_seq", allocationSize = 1)
+	@GeneratedValue(generator = "gerador1", strategy = GenerationType.SEQUENCE)
 	private Long id;
 	private String nome;
-	private String observacao;
+	private String telefone;
+	
 	
 	public Long getId() {
 		return id;
@@ -27,28 +27,26 @@ public class Produtos {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getObservacao() {
-		return observacao;
+	public String getTelefone() {
+		return telefone;
 	}
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
-	
 	@Override
 	public String toString() {
-		return "id:" + id + ",\nnome: " + nome + "\nobservacao:" + observacao;
+		return "id: " + id + "\nnome: " + nome + "\ntelefone: " + telefone;
 	}
-	
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nome, observacao);
+		return Objects.hash(id, nome, telefone);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -58,12 +56,8 @@ public class Produtos {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Produtos other = (Produtos) obj;
+		Doador other = (Doador) obj;
 		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
-				&& Objects.equals(observacao, other.observacao);
-	}
-	
-	
-	
-	
+				&& Objects.equals(telefone, other.telefone);
+	}	
 }

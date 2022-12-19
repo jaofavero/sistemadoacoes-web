@@ -1,4 +1,4 @@
-package web.model;
+package web.sistemaDoacoes.model;
 
 import java.util.Objects;
 

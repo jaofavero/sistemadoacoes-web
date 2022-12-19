@@ -1,4 +1,4 @@
-package web.controller;
+package web.sistemaDoacoes.controller;
 
 import org.springframework.stereotype.Controller;
 
