@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.validation.FieldError;
+
 @Entity
 @Table(name = "doador")
 public class Doador {
@@ -59,5 +61,13 @@ public class Doador {
 		Doador other = (Doador) obj;
 		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
 				&& Objects.equals(telefone, other.telefone);
+	}
+	public boolean hasErrors() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public FieldError[] getFieldErrors() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }
