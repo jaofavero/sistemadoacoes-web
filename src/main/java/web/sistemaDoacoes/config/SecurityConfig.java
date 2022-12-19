@@ -1,4 +1,4 @@
-package web.config;
+package web.sistemaDoacoes.config;
 
 
 import java.util.HashMap;
