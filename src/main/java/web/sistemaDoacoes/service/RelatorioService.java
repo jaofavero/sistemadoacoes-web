@@ -29,7 +29,7 @@ public class RelatorioService {
 
 	
 	public byte[] gerarRelatorioSimplesCarros() {
-		logger.trace("Entrou em gerarRelatorioSimplesCarros");
+		logger.trace("Entrou em gerarRelatorioSimples");
 		InputStream arquivoJasper = getClass().getResourceAsStream("/relatorios/Relatorio.jasper");
 		try (Connection conexao = dataSource.getConnection()){
 			try {
