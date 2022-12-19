@@ -61,12 +61,11 @@ public class Doacao {
 		this.produtos = Produtos;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "id: " + id + ",\nquantidade: " + quantidade;
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, doador, quantidade);
