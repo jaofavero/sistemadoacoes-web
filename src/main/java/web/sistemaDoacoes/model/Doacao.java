@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import web.sistemaDoacoes.model.Produtos;
+
 @Entity
 @Table(name = "doacao")
 public class Doacao {
@@ -26,7 +28,7 @@ public class Doacao {
 	private Doador doador;
 	@ManyToOne
 	@JoinColumn(name = "usario_id")
-	private Usuario usuario;
+	private Produtos produtos;
 	
 	
 	
@@ -50,12 +52,16 @@ public class Doacao {
 		this.doador = doador;
 	}
 	
-	public Usuario getUsuario() {
-		return usuario;
+
+	public Produtos getProdutos() {
+		return produtos;
 	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+
+	public void setVacina(Produtos Produtos) {
+		this.produtos = Produtos;
 	}
+
+	
 	
 	@Override
 	public String toString() {
