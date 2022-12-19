@@ -23,9 +23,5 @@ public class DoadorService {
 		doadorRepository.save(doador);
 	}
 	
-	@Transactional
-	public void remover(Long codigo) {
-		doadorRepository.deleteById(codigo);
-	}
 	
 }

@@ -8,6 +8,5 @@ import web.sistemaDoacoes.model.Doador;
 
 
 public interface DoadorRepository extends JpaRepository<Doador, Long> {
-	List<Doador> findByNomeContainingIgnoreCase(String nome);
-	List<Doador> findByTelefone(String telefone);
+
 }
