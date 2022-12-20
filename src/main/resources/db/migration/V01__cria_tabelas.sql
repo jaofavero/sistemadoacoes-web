@@ -9,8 +9,7 @@ create table public.produtos(
 create table public.doador(
   	codigo serial primary key,
 	nome varchar(60),
-	telefone varchar(20),
-	dataDoacao date
+	telefone varchar(20)
 );
 
 create table public.doacao(

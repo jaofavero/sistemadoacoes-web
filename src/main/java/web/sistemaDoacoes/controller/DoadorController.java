@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import web.controlevacinacao.model.Pessoa;
+import web.controlevacinacao.model.Status;
 import web.sistemaDoacoes.model.Doador;
 import web.sistemaDoacoes.repository.DoadorRepository;
 import web.sistemaDoacoes.service.DoadorService;
@@ -44,6 +46,7 @@ public class DoadorController {
 	public String cadastrar(@Valid Doador doador, BindingResult resultado) {
 		if (resultado.hasErrors()) {
 			for (FieldError erro : resultado.getFieldErrors()) {
+				logger.info("{}", erro);
 			}
 			return "doador/cadastrar";
 		} else {
@@ -67,6 +70,7 @@ public class DoadorController {
 	public String alterar(@Valid Doador doador, BindingResult resultado) {
 		if (resultado.hasErrors()) {
 			for (FieldError erro : resultado.getFieldErrors()) {
+				logger.info("{}", erro);
 			}
 			return "doador/alterar";
 		} else {
@@ -78,6 +82,23 @@ public class DoadorController {
 	@GetMapping("/alterar/sucesso")
 	public String mostrarMensagemAlterarSucesso(Model model) {
 		model.addAttribute("mensagem", "Alteração do Pessoa efetuada com sucesso.");
+		return "mostrarmensagem";
+	}
+	@PostMapping("/abrirremover")
+	public String abrirRemover(Doador doador) {
+		return "pessoa/remover";
+	}
+	
+	@PostMapping("/remover")
+	public String remover(Doador doador) {
+		doador.setStatus(Status.INATIVO);
+		doadorService.alterar(doador);
+		return "redirect:/pessoas/remover/sucesso";
+	}
+	
+	@GetMapping("/remover/sucesso")
+	public String mostrarMensagemRemoverSucesso(Model model) {
+		model.addAttribute("mensagem", "Remoção (INATIVO) de Pessoa efetuada com sucesso.");
 		return "mostrarmensagem";
 	}
 	

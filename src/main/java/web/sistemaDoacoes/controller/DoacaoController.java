@@ -52,6 +52,7 @@ public class DoacaoController {
 	
 	@GetMapping("/cadastrar")
 	public String abrirCadastrar(Doacao doacao, Model model) {
+		logger.info("Entrou cadastar");
 		colocarProdutosModelo(model);
 		colocarDoadorModelo(model);
 		return "doacao/cadastrar";

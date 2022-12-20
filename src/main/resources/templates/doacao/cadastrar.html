@@ -17,7 +17,7 @@
 							<fieldset>
 								<legend>Doador</legend>
 								<select id="doador" name="doador" class="form-select" th:errorclass="is-invalid">
-									<option th:each="d : doador" th:value="${d.codigo}" th:text="${d.nome}"></option>
+									<option th:each="d : ${doador}" th:value="${d.codigo}" th:text="${d.nome}"></option>
 								</select>
 								<span class="invalid-feedback" th:if="${#fields.hasErrors('doador')}" 
                           			th:each="erro : {#fields.errors('doador')}" th:text="${erro} + '. '"></span>
@@ -25,7 +25,7 @@
 							<fieldset>
 								<legend>Produto</legend>
 								<select id="produto" name="produto" class="form-select" th:errorclass="is-invalid">
-									<option th:each="p : produto" th:value="${p.codigo}" th:text="${p.nome}"></option>
+									<option th:each="p : ${produto}" th:value="${p.codigo}" th:text="${p.nome}"></option>
 								</select>
 								<span class="invalid-feedback" th:if="${#fields.hasErrors('produto')}" 
                           			th:each="erro : {#fields.errors('produto')}" th:text="${erro} + '. '"></span>

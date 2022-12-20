@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.validation.FieldError;
+
+import web.sistemaDoacoes.model.Status;
 
 @Entity
 @Table(name = "doador")
@@ -25,7 +29,8 @@ public class Doador implements Serializable{
 	private Long codigo;
 	private String nome;
 	private String telefone;
-	
+	@Enumerated(EnumType.STRING)
+	private Status status = Status.ATIVO;
 	
 	
 	public Long getCodigo() {

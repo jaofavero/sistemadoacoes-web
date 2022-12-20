@@ -9,3 +9,4 @@ VALUES
 ('Pães', ''),
 ('Bolachas', ''),
 ('Brinquedos', '');
+
