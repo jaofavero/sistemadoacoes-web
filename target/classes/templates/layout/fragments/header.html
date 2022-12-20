@@ -9,6 +9,11 @@
             <div class="name--profile">
                 <p><strong>Lenner de Almeida Alves Pereira</strong></p>
             </div>
+            <div sec:authorize="isAuthenticated()">
+				<form th:action="@{/logout}">
+					<input style="height:25px;" type="submit" value="Logout">
+				</form>
+			</div>
         </div>
         <div class="header--area">
             <div class="header--title">

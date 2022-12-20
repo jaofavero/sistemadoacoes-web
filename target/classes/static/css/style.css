@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url('../../static/imagens/jesus.jpg');
+    background-image: url('/imagens/jesus.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -55,7 +55,7 @@ main{
 }
 .photo{
     width: 60px; 
-    background-image: url("../../static/imagens/lenner-profile.jpeg");
+    background-image: url("../imagens/lenner-profile.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
