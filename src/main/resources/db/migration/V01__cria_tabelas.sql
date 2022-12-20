@@ -15,17 +15,11 @@ create table public.doador(
 
 create table public.doacao(
 	codigo serial primary key,
-	doador_id int not null,
-	FOREIGN KEY (doador_id) REFERENCES doador(codigo)
-);
-
-create table public.item(
-	codigo serial primary key,
 	quantidade int,
+	doador_id int not null,
+	FOREIGN KEY (doador_id) REFERENCES doador(codigo),
 	produto_id int not null, 
-	FOREIGN KEY (produto_id) REFERENCES produtos(codigo),
-	doacao_id int not null,
-	FOREIGN KEY (doacao_id) REFERENCES doacao(codigo)
+	FOREIGN KEY (produto_id) REFERENCES produtos(codigo)
 );
 
 END;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Cadastrar Doação</title>
+</head>
+<body>
+	<main layout:fragment="conteudo">
+	   <section class="fragment--section">
+			<div class="area--total--doador"> 
+				<div class="main--cadastrar--doador">
+					<div class="titulo--cadastrar--doador">Cadastro de Doação</div>
+					<div class="form--cadastrar--doador">
+						<form th:action="@{/doacao/cadastrar}" method="post">
+
+							<fieldset>
+								<legend>Doador</legend>
+								<select id="doador" name="doador" class="form-select" th:errorclass="is-invalid">
+									<option th:each="d : doador" th:value="${d.codigo}" th:text="${d.nome}"></option>
+								</select>
+								<span class="invalid-feedback" th:if="${#fields.hasErrors('doador')}" 
+                          			th:each="erro : {#fields.errors('doador')}" th:text="${erro} + '. '"></span>
+							</fieldset>
+							<fieldset>
+								<legend>Produto</legend>
+								<select id="produto" name="produto" class="form-select" th:errorclass="is-invalid">
+									<option th:each="p : produto" th:value="${p.codigo}" th:text="${p.nome}"></option>
+								</select>
+								<span class="invalid-feedback" th:if="${#fields.hasErrors('produto')}" 
+                          			th:each="erro : {#fields.errors('produto')}" th:text="${erro} + '. '"></span>
+							</fieldset>
+							<fieldset>
+								<legend>Quantidade</legend>
+								<input type="number" th:errorclass="is-invalid">
+								<span class="invalid-feedback" th:if="${#fields.hasErrors('quantidade')}" 
+                          				th:each="erro : {#fields.errors('quantidade')}" th:text="${erro} + '. '"></span>
+							</fieldset>
+							<div class="area--btn--form">
+								<input type="submit" value="Cadastrar">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div th:replace="~{layout/fragments/sidebar :: sidebar}"></div>
+	</main>
+
+</body>
+</html>

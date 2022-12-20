@@ -27,17 +27,18 @@ public class Produtos implements Serializable {
 	@Id
 	@SequenceGenerator(name = "gerador4", sequenceName = "produto_codigo_seq", allocationSize = 1)
 	@GeneratedValue(generator = "gerador4", strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long codigo;
 	private String nome;
 	private String observacao;
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.ATIVO;
 	
-	public Long getId() {
-		return id;
+	
+	public Long getCodigo() {
+		return codigo;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 	public String getNome() {
 		return nome;
@@ -54,7 +55,7 @@ public class Produtos implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "id:" + id + ",\nnome: " + nome + "\nobservacao:" + observacao;
+		return "codigo:" + codigo + ",\nnome: " + nome + "\nobservacao:" + observacao;
 	}
 	
 	public Status getStatus() {
@@ -69,7 +70,7 @@ public class Produtos implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 	
@@ -82,11 +83,7 @@ public class Produtos implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Produtos other = (Produtos) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
+		return Objects.equals(codigo, other.codigo) && Objects.equals(nome, other.nome)
 				&& Objects.equals(observacao, other.observacao);
-	}
-	
-	
-	
-	
+	}	
 }

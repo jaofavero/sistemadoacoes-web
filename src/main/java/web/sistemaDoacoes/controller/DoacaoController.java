@@ -85,7 +85,7 @@ public class DoacaoController {
 
 	@GetMapping("/cadastrosucesso")
 	public String mostrarCadastroSucesso(Model model) {
-		model.addAttribute("mensagem", "Cadastro de lote efetuado com sucesso.");
+		model.addAttribute("mensagem", "Cadastro de Doação efetuado com sucesso.");
 		return "mostrarmensagem";
 	}
 	

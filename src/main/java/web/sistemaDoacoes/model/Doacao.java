@@ -1,7 +1,7 @@
 package web.sistemaDoacoes.model;
 
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -12,10 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.annotations.DynamicUpdate;
-
-import web.sistemaDoacoes.model.Produtos;
 
 @Entity
 @Table(name = "doacao")
@@ -25,24 +25,27 @@ public class Doacao implements Serializable{
 	@Id
 	@SequenceGenerator(name = "gerador2", sequenceName = "doacao_codigo_seq", allocationSize = 1)
 	@GeneratedValue(generator = "gerador2", strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long codigo;
+	@NotNull(message = "A quantidade de produtos é obrigatória")
+	@Positive(message = "A quantidade de produtos deve ser maior que zero 0")
 	private int quantidade;
 	@ManyToOne
 	@JoinColumn(name = "doador_id")
 	private Doador doador;
 	@ManyToOne
-	@JoinColumn(name = "usario_id")
+	@JoinColumn(name = "produto_id")
 	private Produtos produtos;
 	
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
+	
+	public Long getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
 	public int getQuantidade() {
 		return quantidade;
 	}
@@ -55,24 +58,22 @@ public class Doacao implements Serializable{
 	public void setDoador(Doador doador) {
 		this.doador = doador;
 	}
-	
-
 	public Produtos getProdutos() {
 		return produtos;
 	}
-
+	public void setProdutos(Produtos produtos) {
+		this.produtos = produtos;
+	}
 	public void setVacina(Produtos Produtos) {
 		this.produtos = Produtos;
 	}
-
 	@Override
 	public String toString() {
-		return "id: " + id + ",\nquantidade: " + quantidade;
+		return "codigo:" + codigo + "\nquantidade:" + quantidade;
 	}
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, doador, quantidade);
+		return Objects.hash(codigo, doador, produtos, quantidade);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -83,7 +84,10 @@ public class Doacao implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Doacao other = (Doacao) obj;
-		return Objects.equals(id, other.id) && Objects.equals(doador, other.doador)
-				&& quantidade == other.quantidade;
-	}	
+		return Objects.equals(codigo, other.codigo) && Objects.equals(doador, other.doador)
+				&& Objects.equals(produtos, other.produtos) && quantidade == other.quantidade;
+	}
+
+	
+		
 }
