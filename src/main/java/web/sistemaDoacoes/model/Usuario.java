@@ -27,8 +27,8 @@ public class Usuario implements Serializable {
 	@Id
 	@SequenceGenerator(name = "gerador3", sequenceName = "usuario_codigo_seq", allocationSize = 1)
 	@GeneratedValue(generator = "gerador3", strategy = GenerationType.SEQUENCE)
-	private Long id;
-	private String login;
+	private Long codigo;
+	private String nome;
 	private String senha;
 	@Column(name = "nome_usuario")
 	private String nomeUsuario;
@@ -39,17 +39,25 @@ public class Usuario implements Serializable {
 	
 	
 	
-	public Long getId() {
-		return id;
+
+	
+	public Long getCodigo() {
+		return codigo;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
-	public String getLogin() {
-		return login;
+	public String getNome() {
+		return nome;
 	}
-	public void setLogin(String login) {
-		this.login = login;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getNomeUsuario() {
+		return nomeUsuario;
+	}
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 	public String getSenha() {
 		return senha;
@@ -60,14 +68,16 @@ public class Usuario implements Serializable {
 	
 	
 	
+
+	
 	@Override
 	public String toString() {
-		return "id: " + id + "\nlogin:" + login + "\nsenha=" + senha;
+		return "codigo:" + codigo + "\nnome:" + nome + "\nsenha:" + senha + "\nnomeUsuario:" + nomeUsuario;
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash( id, login, senha);
+		return Objects.hash(ativo, codigo, nome, nomeUsuario, papeis, senha);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -78,12 +88,31 @@ public class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+		return ativo == other.ativo && Objects.equals(codigo, other.codigo) && Objects.equals(nome, other.nome)
+				&& Objects.equals(nomeUsuario, other.nomeUsuario) && Objects.equals(papeis, other.papeis)
+				&& Objects.equals(senha, other.senha);
+	}
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+	public void adicionarPapel(Papel papel) {
+		papeis.add(papel);
+	}
+
+	public void removerPapel(Papel papel) {
+		papeis.remove(papel);
+	}
+
+	public List<Papel> getPapeis() {
+		return papeis;
+	}
+
+	public void setPapeis(List<Papel> papeis) {
+		this.papeis = papeis;
 	}
 	
 	

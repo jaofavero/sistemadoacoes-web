@@ -12,21 +12,18 @@
 				<div class="main--cadastrar--doador">
 					<div class="titulo--cadastrar--doador">Alterar Doador</div>
 					<div class="form--cadastrar--doador">
+						
 						<form th:action="@{/doador/alterar}" method="post" th:object="${doador}">
-							<label for="nome" class="form-label">
-								Código:
-								<span th:text="*{codigo}"></span>
-							</label><br>
+							<p th:text="'Código: ' + *{codigo}"></p>
 							<input type="hidden" name="codigo" th:value="*{codigo}">
 							<fieldset>
 								<legend>Nome</legend>
-								<input type="text" th:field="*{nome}" placeholder="Digite o nome do doador" th:errorclass="is-invalid">
-								<span class="invalid-feedback" th:if="${#fields.hasErrors('nome')}" th:each="erro : ${#fields.errors('nome')}" th:text="${erro} + '. '"></span>
+								<input type="text" th:field="*{nome}" placeholder="Digite o nome do doador" >
 							</fieldset>
 							<fieldset>
 								<legend>Telefone</legend>
-								<input type="text" th:field="*{telefone}" placeholder="Digite o telefone do doador" th:errorclass="is-invalid">
-								<span class="invalid-feedback" th:if="${#fields.hasErrors('telefone')}" th:each="erro : ${#fields.errors('telefone')}" th:text="${erro} + '. '"></span>
+								<input type="text" th:field="*{telefone}" placeholder="Digite o telefone do doador" >
+								
 							</fieldset>
 							<div class="area--btn--form">
 								<input type="submit" value="Alterar">

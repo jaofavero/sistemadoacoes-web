@@ -197,8 +197,9 @@ main{
 	
 }
 /* === FORMULÁRIOS === */
-input[type="text"], input[type="number"]{
+input[type="text"], input[type="number"], select{
 	
+	width: calc(100% - 50px);
 	height:40px;
 	padding: 5px;
 	margin:7px;

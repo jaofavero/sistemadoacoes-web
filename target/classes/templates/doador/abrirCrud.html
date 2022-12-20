@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Crud Doador</title>
+</head>
+<body>
+	<main layout:fragment="conteudo">
+		<section class="fragment--section">
+			<div class="area--total--doador"> 
+				<div class="main--cadastrar--doador">
+					<div class="titulo--cadastrar--doador">Crud Doador</div>
+					<div class="form--cadastrar--doador">
+						<table>
+							<tr th:each="d : ${doador}">
+								<td th:text="${d.codigo}"></td>
+								<td th:text="${d.nome}"></td>
+								<td>Editar</td>
+								<td>Excluir</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div th:replace="~{layout/fragments/sidebar :: sidebar}"></div>
+	</main>
+</body>
+</html>

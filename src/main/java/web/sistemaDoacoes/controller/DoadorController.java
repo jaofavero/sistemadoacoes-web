@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import web.controlevacinacao.model.Pessoa;
-import web.controlevacinacao.model.Status;
+import web.sistemaDoacoes.model.Status;
 import web.sistemaDoacoes.model.Doador;
 import web.sistemaDoacoes.repository.DoadorRepository;
 import web.sistemaDoacoes.service.DoadorService;
@@ -60,11 +59,18 @@ public class DoadorController {
 		model.addAttribute("mensagem", "Cadastro de Doador efetuado com sucesso.");
 		return "mostrarmensagem";
 	}
-	@PostMapping("/abriralterar")
+	@GetMapping("/abriralterar")
 	public String abrirAlterar(Doador doador, Model model) {
+		colocarDoadorModelo(model);
 		return "doador/alterar";
 	}
 	
+	
+	
+	private void colocarDoadorModelo(Model model) {
+		List<Doador> doador = doadorRepository.findByStatus(Status.ATIVO);
+		model.addAttribute("doador", doador);
+	}
 	
 	@PostMapping("/alterar")
 	public String alterar(@Valid Doador doador, BindingResult resultado) {

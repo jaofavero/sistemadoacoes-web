@@ -59,6 +59,17 @@ public class Doador implements Serializable{
 	public int hashCode() {
 		return Objects.hash(codigo, nome, telefone);
 	}
+	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+	
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

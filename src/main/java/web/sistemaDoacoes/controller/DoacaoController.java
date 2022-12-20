@@ -63,13 +63,13 @@ public class DoacaoController {
 		model.addAttribute("produtos", produtos);
 	}
 	private void colocarDoadorModelo(Model model) {
-		List<Doador> doador = doadorRepository.findAll();
+		List<Doador> doador = doadorRepository.findByStatus(Status.ATIVO);
 		model.addAttribute("doador", doador);
 	}
 
 	@PostMapping("/cadastrar")
 	public String cadastrar(@Valid Doacao doacao, BindingResult resultado, Model model) {
-		if (resultado.hasErrors()) {
+		/*if (resultado.hasErrors()) {
 			logger.info("O lote recebido para cadastrar não é válido.");
 			logger.info("Erros encontrados:");
 			for (FieldError erro : resultado.getFieldErrors()) {
@@ -78,11 +78,11 @@ public class DoacaoController {
 			colocarProdutosModelo(model);
 			colocarDoadorModelo(model);
 			return "doacao/cadastrar";
-		} else {
+		} else {*/
 			doacaoService.salvar(doacao);
 			return "redirect:/doacao/cadastrosucesso";
 		}
-	}
+	//}
 
 	@GetMapping("/cadastrosucesso")
 	public String mostrarCadastroSucesso(Model model) {

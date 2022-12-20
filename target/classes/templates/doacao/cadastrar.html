@@ -16,25 +16,25 @@
 
 							<fieldset>
 								<legend>Doador</legend>
-								<select id="doador" name="doador" class="form-select" th:errorclass="is-invalid">
+								<select id="doador" name="doador" class="form-select" >
 									<option th:each="d : ${doador}" th:value="${d.codigo}" th:text="${d.nome}"></option>
 								</select>
-								<span class="invalid-feedback" th:if="${#fields.hasErrors('doador')}" 
-                          			th:each="erro : {#fields.errors('doador')}" th:text="${erro} + '. '"></span>
+								<!-- <span class="invalid-feedback" th:if="${#fields.hasErrors('doador')}" 
+                          			th:each="erro : {#fields.errors('doador')}" th:text="${erro} + '. '"></span>-->
 							</fieldset>
 							<fieldset>
 								<legend>Produto</legend>
-								<select id="produto" name="produto" class="form-select" th:errorclass="is-invalid">
-									<option th:each="p : ${produto}" th:value="${p.codigo}" th:text="${p.nome}"></option>
+								<select id="produtos" name="produtos" class="form-select" >
+									<option th:each="p : ${produtos}" th:value="${p.codigo}" th:text="${p.nome}"></option>
 								</select>
-								<span class="invalid-feedback" th:if="${#fields.hasErrors('produto')}" 
-                          			th:each="erro : {#fields.errors('produto')}" th:text="${erro} + '. '"></span>
+								<!--<span class="invalid-feedback" th:if="${#fields.hasErrors('produto')}" 
+                          			th:each="erro : {#fields.errors('produto')}" th:text="${erro} + '. '"></span>-->
 							</fieldset>
 							<fieldset>
 								<legend>Quantidade</legend>
-								<input type="number" th:errorclass="is-invalid">
-								<span class="invalid-feedback" th:if="${#fields.hasErrors('quantidade')}" 
-                          				th:each="erro : {#fields.errors('quantidade')}" th:text="${erro} + '. '"></span>
+								<input type="number" name="quantidade" id="quantidade" value="1">
+								<!--<span class="invalid-feedback" th:if="${#fields.hasErrors('quantidade')}" 
+                          				th:each="erro : {#fields.errors('quantidade')}" th:text="${erro} + '. '"></span>-->
 							</fieldset>
 							<div class="area--btn--form">
 								<input type="submit" value="Cadastrar">
