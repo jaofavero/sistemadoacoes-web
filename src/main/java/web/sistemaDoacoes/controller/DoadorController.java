@@ -36,27 +36,44 @@ public class DoadorController {
 
 	
 	@PostMapping("/cadastrar")
-	public String cadastrar(@Valid Doador doador) {
-		if (doador.hasErrors()) {
-			for (FieldError erro : doador.getFieldErrors()) {
+	public String cadastrar(@Valid Doador doador, BindingResult resultado) {
+		if (resultado.hasErrors()) {
+			for (FieldError erro : resultado.getFieldErrors()) {
 			}
 			return "pessoa/cadastrar";
 		} else {
 			doadorService.salvar(doador);
-			return "/pessoas/";
+			return "redirect:/pessoas/cadastro/sucesso";
 		}
 	}
+	
+	@GetMapping("/cadastro/sucesso")
+	public String mostrarMensagemCadastroSucesso(Model model) {
+		model.addAttribute("mensagem", "Cadastro de Doador efetuado com sucesso.");
+		return "mostrarmensagem";
+	}
+	@PostMapping("/abriralterar")
+	public String abrirAlterar(Doador doador) {
+		return "doador/alterar";
+	}
+	
 	
 	@PostMapping("/alterar")
 	public String alterar(@Valid Doador doador, BindingResult resultado) {
 		if (resultado.hasErrors()) {
 			for (FieldError erro : resultado.getFieldErrors()) {
 			}
-			return "pessoa/alterar";
+			return "doador/alterar";
 		} else {
 			doadorService.alterar(doador);
-			return "/pessoas/";
+			return "redirect:/doador/alterar/sucesso";
 		}
+	}
+	
+	@GetMapping("/alterar/sucesso")
+	public String mostrarMensagemAlterarSucesso(Model model) {
+		model.addAttribute("mensagem", "Alteração do Pessoa efetuada com sucesso.");
+		return "mostrarmensagem";
 	}
 	
 	

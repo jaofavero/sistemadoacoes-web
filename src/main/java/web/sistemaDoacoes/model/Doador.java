@@ -1,5 +1,6 @@
 package web.sistemaDoacoes.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -9,12 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.validation.FieldError;
 
 @Entity
 @Table(name = "doador")
-public class Doador {
+@DynamicUpdate 
+public class Doador implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@SequenceGenerator(name = "gerador1", sequenceName = "doador_codigo_seq", allocationSize = 1)
 	@GeneratedValue(generator = "gerador1", strategy = GenerationType.SEQUENCE)
@@ -62,12 +66,4 @@ public class Doador {
 		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
 				&& Objects.equals(telefone, other.telefone);
 	}
-	public boolean hasErrors() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	public FieldError[] getFieldErrors() {
-		// TODO Auto-generated method stub
-		return null;
-	}	
 }
