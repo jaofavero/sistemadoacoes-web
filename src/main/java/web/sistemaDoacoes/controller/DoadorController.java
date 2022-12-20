@@ -35,7 +35,7 @@ public class DoadorController {
 	
 	@GetMapping("/cadastrar")
 	public String abrirCadastro(Doador doador) {
-		return "pessoa/cadastrar";
+		return "doador/cadastrar";
 	}
 
 
@@ -45,10 +45,10 @@ public class DoadorController {
 		if (resultado.hasErrors()) {
 			for (FieldError erro : resultado.getFieldErrors()) {
 			}
-			return "pessoa/cadastrar";
+			return "doador/cadastrar";
 		} else {
 			doadorService.salvar(doador);
-			return "redirect:/pessoas/cadastro/sucesso";
+			return "redirect:/doador/cadastro/sucesso";
 		}
 	}
 	
@@ -58,7 +58,7 @@ public class DoadorController {
 		return "mostrarmensagem";
 	}
 	@PostMapping("/abriralterar")
-	public String abrirAlterar(Doador doador) {
+	public String abrirAlterar(Doador doador, Model model) {
 		return "doador/alterar";
 	}
 	

@@ -19,3 +19,20 @@ function submeterFormLogin()
     return true;
 }
  
+function validForm(acao)
+{
+	switch(acao)
+	{
+		case 1:
+			var nome = document.querySelector("#name");
+			var telefone = document.querySelector("#telefone");
+			if(nome.value == '' || telefone.value == '')
+			{
+				alert("Nome ou telefone vazios, para cadastrar preencha os dados por favor.");
+				return false;
+			}
+			return true;
+		break;
+	}
+	
+}

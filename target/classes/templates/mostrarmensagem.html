@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Página Principal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Mensagem</title>
 </head>
 <body>
-
 	<main layout:fragment="conteudo">
 		<section class="fragment--section">
-			
-				<h1 class="titulo--principal">Bem vindo ao Sistema de Doações Fé, Amor e Caridade</h1>
-			
+			<h1 class="titulo--principal" th:text="${mensagem}"></h2>
 		</section>
 		<div th:replace="~{layout/fragments/sidebar :: sidebar}"></div>
 	</main>
+
 </body>
 </html>

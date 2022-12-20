@@ -22,18 +22,18 @@ public class Doador implements Serializable{
 	@Id
 	@SequenceGenerator(name = "gerador1", sequenceName = "doador_codigo_seq", allocationSize = 1)
 	@GeneratedValue(generator = "gerador1", strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long codigo;
 	private String nome;
 	private String telefone;
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
+	public Long getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -48,11 +48,11 @@ public class Doador implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "id: " + id + "\nnome: " + nome + "\ntelefone: " + telefone;
+		return "codigo: " + codigo + "\nnome: " + nome + "\ntelefone: " + telefone;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nome, telefone);
+		return Objects.hash(codigo, nome, telefone);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -63,7 +63,7 @@ public class Doador implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Doador other = (Doador) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
+		return Objects.equals(codigo, other.codigo) && Objects.equals(nome, other.nome)
 				&& Objects.equals(telefone, other.telefone);
 	}
 }

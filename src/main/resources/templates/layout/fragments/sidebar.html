@@ -5,6 +5,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	   <aside th:fragment="sidebar" class="fragment--aside">
+            <nav class="nav--aside">
+                <ul class="menu--aside">
+                    <li><a th:href="@{/doacao/cadastrar}">Cadastrar Doação</a></li>
+                    <li><a th:href="@{/doador/cadastrar}">Cadastrar Doador</a></li>
+                    <li><a th:href="@{/usuarios/editar}">Editar Usuário</a></li>
+                    <li><a th:href="@{/relatorios/buscar}">Relatório</a></li>
+                </ul>
+            </nav>
+            <div class="imagens--mentores">
+                <div class="chico">
+                    <img th:src="@{/imagens/chico.jpg}" alt="Foto de Chico Xavier" width="100%" height="100%">
+                </div>
+                <div class="emmanuel">
+                    <img th:src="@{/imagens/emmanuel.jpg}" alt="Foto de Emmanuel" width="100%" height="100%">
+                </div>
+                <div class="allan">
+                    <img th:src="@{/imagens/allan-kardec.png}" alt="Foto de Allan Kardec" width="100%" height="100%">
+                </div>
+            </div>
+        </aside>
 </body>
 </html>

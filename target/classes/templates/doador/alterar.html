@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" layout:decorate="~{layout/layoutpadrao}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Alterar Doador</title>
+</head>
+<body>
+	<main layout:fragment="conteudo">
+		<section class="fragment--section">
+			<div class="area--total--doador"> 
+				<div class="main--cadastrar--doador">
+					<div class="titulo--cadastrar--doador">Alterar Doador</div>
+					<div class="form--cadastrar--doador">
+						<form th:action="@{/doador/alterar}" method="post" th:object="${doador}">
+							<label for="nome" class="form-label">
+								Código:
+								<span th:text="*{codigo}"></span>
+							</label><br>
+							<input type="hidden" name="codigo" th:value="*{codigo}">
+							<fieldset>
+								<legend>Nome</legend>
+								<input type="text" th:field="*{nome}" placeholder="Digite o nome do doador" th:errorclass="is-invalid">
+								<span class="invalid-feedback" th:if="${#fields.hasErrors('nome')}" th:each="erro : ${#fields.errors('nome')}" th:text="${erro} + '. '"></span>
+							</fieldset>
+							<fieldset>
+								<legend>Telefone</legend>
+								<input type="text" th:field="*{telefone}" placeholder="Digite o telefone do doador" th:errorclass="is-invalid">
+								<span class="invalid-feedback" th:if="${#fields.hasErrors('telefone')}" th:each="erro : ${#fields.errors('telefone')}" th:text="${erro} + '. '"></span>
+							</fieldset>
+							<div class="area--btn--form">
+								<input type="submit" value="Alterar">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div th:replace="~{layout/fragments/sidebar :: sidebar}"></div>
+	</main>
+</body>
+</html>
