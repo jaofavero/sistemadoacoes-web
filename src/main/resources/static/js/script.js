@@ -18,3 +18,12 @@ function submeterFormLogin()
     }
     return true;
 }
+function remover()
+{
+	var formExcluir = document.querySelector("#formExcluir");
+	
+	if(confirm("Deseja realmente excluir esse doador?"))
+	{
+		formExcluir.submit();
+	}
+}

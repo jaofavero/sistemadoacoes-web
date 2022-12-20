@@ -87,12 +87,13 @@ public class DoadorController {
 	
 	@GetMapping("/alterar/sucesso")
 	public String mostrarMensagemAlterarSucesso(Model model) {
-		model.addAttribute("mensagem", "Alteração do Pessoa efetuada com sucesso.");
+		model.addAttribute("mensagem", "Alteração do doador efetuada com sucesso.");
 		return "mostrarmensagem";
 	}
-	@PostMapping("/abrirremover")
-	public String abrirRemover(Doador doador) {
-		return "pessoa/remover";
+	@GetMapping("/abrirremover")
+	public String abrirRemover(Doador doador, Model model) {
+		colocarDoadorModelo(model);
+		return "doador/remover";
 	}
 	
 	@PostMapping("/remover")

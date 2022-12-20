@@ -14,15 +14,19 @@
 					<div class="form--cadastrar--doador">
 						
 						<form th:action="@{/doador/alterar}" method="post" th:object="${doador}">
-							<p th:text="'Código: ' + *{codigo}"></p>
-							<input type="hidden" name="codigo" th:value="*{codigo}">
+							<fieldset>
+								<legend>Doador</legend>
+								<select id="doador" name="doador" class="form-select" >
+									<option th:each="d : ${doador}" th:value="${d.codigo}" th:text="${d.nome}"></option>
+								</select>
+							</fieldset>
 							<fieldset>
 								<legend>Nome</legend>
-								<input type="text" th:field="*{nome}" placeholder="Digite o nome do doador" >
+								<input type="text" name="nome" id="nome" placeholder="altere o nome do doador" >
 							</fieldset>
 							<fieldset>
 								<legend>Telefone</legend>
-								<input type="text" th:field="*{telefone}" placeholder="Digite o telefone do doador" >
+								<input type="text" name="telefone" id="telefone" placeholder="altere o telefone do doador" >
 								
 							</fieldset>
 							<div class="area--btn--form">
