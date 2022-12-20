@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import web.sistemaDoacoes.model.Status;
 import web.sistemaDoacoes.model.Produtos;
 import web.sistemaDoacoes.repository.ProdutosRepository;
 import web.sistemaDoacoes.service.ProdutosService;
@@ -48,6 +49,7 @@ public class ProdutosController {
 	
 	@PostMapping("/remover")
 	public String remover(Produtos produtos) {
+		produtos.setStatus(Status.INATIVO);
 		produtosService.alterar(produtos);
 		return "produtos/remover";
 	}
