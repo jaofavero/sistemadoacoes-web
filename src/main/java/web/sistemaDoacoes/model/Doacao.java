@@ -1,6 +1,7 @@
 package web.sistemaDoacoes.model;
 
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -12,12 +13,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import web.sistemaDoacoes.model.Produtos;
 
 @Entity
 @Table(name = "doacao")
-public class Doacao {
-	
+@DynamicUpdate
+public class Doacao implements Serializable{
+	private static final long serialVersionUID = -3935828642122652510L;
 	@Id
 	@SequenceGenerator(name = "gerador2", sequenceName = "doacao_codigo_seq", allocationSize = 1)
 	@GeneratedValue(generator = "gerador2", strategy = GenerationType.SEQUENCE)
