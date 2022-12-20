@@ -12,7 +12,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 import web.sistemaDoacoes.model.Doador;
 import web.sistemaDoacoes.repository.DoadorRepository;
 import web.sistemaDoacoes.service.DoadorService;
@@ -47,4 +46,18 @@ public class DoadorController {
 			return "/pessoas/";
 		}
 	}
+	
+	@PostMapping("/alterar")
+	public String alterar(@Valid Doador doador, BindingResult resultado) {
+		if (resultado.hasErrors()) {
+			for (FieldError erro : resultado.getFieldErrors()) {
+			}
+			return "pessoa/alterar";
+		} else {
+			doadorService.alterar(doador);
+			return "/pessoas/";
+		}
+	}
+	
+	
 }
